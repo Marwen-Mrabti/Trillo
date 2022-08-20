@@ -1,0 +1,439 @@
+.hotel-view {
+  background-color: #dee2e6;
+  flex: 1;
+  min-height: 70rem;
+}
+/***************************************/
+.gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+
+  &__item {
+    flex: 0 0 33.33%;
+    @include respond(tab-port) {
+      flex: 0 0 60%;
+    }
+    @include respond(phone) {
+      flex: 0 0 90%;
+    }
+  }
+  &__photo {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/***************************************/
+.overview {
+  background-color: #f8f9fa;
+  width: 100%;
+  min-height: 5rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid var(--color-grey-light-2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  @include respond(tab-port) {
+    flex-wrap: wrap;
+  }
+
+  &__heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    padding: 1rem;
+    color: var(--color-primary-light);
+    text-transform: uppercase;
+  }
+
+  &__stars {
+    flex: 0 1 5%;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon-star {
+    width: 1.4rem;
+    height: 1.4rem;
+    &:not(:last-child) {
+      fill: var(--color-primary);
+    }
+    &:last-child {
+      fill: #999;
+    }
+  }
+
+  &__location {
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  &__icon-location {
+    width: 1.4rem;
+    height: 1.4rem;
+    fill: var(--color-grey-dark-2);
+  }
+
+  &__rating {
+    background-color: var(--color-primary);
+    color: #fff;
+    padding: 0rem 2rem;
+    margin-left: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    &-average {
+      font-size: 2.25rem;
+      font-weight: 300;
+    }
+    &-count {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/***************************************/
+// Hotel details
+/***************************************/
+.details {
+  background-color: var(--color-grey-light-3);
+  border-bottom: 2px solid var(--color-grey-dark-2);
+  padding: 3.5rem 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+
+  @include respond(tab-port) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/***************************************/
+// Hotel details : hotel description
+/***************************************/
+.description {
+  background-color: var(--color-grey-light-1);
+  box-shadow: 0 1rem 4rem rgba(#000, 0.06);
+  padding: 2rem;
+  margin-right: 2rem;
+
+  font-size: 1.4rem;
+  flex: 0 0 60%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+
+  @include respond(tab-port) {
+    margin-right: 0rem;
+  }
+
+  &__text {
+    color: var(--color-grey-dark-2);
+  }
+
+  &__list {
+    // background-color: rgb(153, 81, 81);
+    list-style: none;
+    padding: 2rem;
+    width: 100%;
+    border-bottom: 1px solid var(--color-grey-dark-2);
+    border-top: 1px solid var(--color-grey-dark-2);
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include respond(phone) {
+      justify-content: center;
+    }
+    &-item {
+      // background-color: #fff;
+      flex: 0 0 50%;
+      margin-bottom: 0.7rem;
+      @include respond(phone) {
+        flex: 0 0 70%;
+        margin: 0.5rem auto;
+      }
+
+      &::before {
+        content: '>';
+        color: var(--color-primary);
+        font-size: 1.5rem;
+        margin-right: 0.3rem;
+      }
+    }
+  }
+
+  &__recommend {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    &-count {
+      font-size: 1.3rem;
+      margin-right: auto;
+    }
+    &-friends {
+      margin-left: auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+
+      &-photo {
+        height: 4.5rem;
+        width: 4.5rem;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        &:not(:first-child) {
+          margin-left: -1.5rem;
+        }
+      }
+    }
+  }
+}
+/***************************************/
+// Hotel details : hotel review
+/***************************************/
+.reviews {
+  background-color: var(--color-grey-light-3);
+  padding: 1rem 0;
+  flex: 0 0 33%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.reviews .btn-inline {
+  font-size: 1.3rem;
+  &:hover {
+    margin-right: -0.5rem;
+  }
+  &:hover span {
+    margin: 0 0.5rem 0 0.5rem;
+  }
+}
+
+.review {
+  background-color: #fff;
+  padding: 0.5rem 0;
+  box-shadow: 0 1rem 3rem rgba(#000, 0.2);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+
+  @include respond(tab-port) {
+    width: 90%;
+    margin:auto;
+    transform: skewX(-15deg);
+  }
+
+  &__text {
+    padding: 0 0 0 3rem;
+    font-size: 1.4rem;
+    color: var(--color-grey-dark-2);
+    position: relative;
+    z-index: 1;
+    @include respond(tab-port) {
+      transform: skewX(15deg);
+    }
+    &::before {
+      // background-color: rgb(211, 32, 32);
+      content: '\201c';
+      font-family: sans-serif;
+      font-size: 15rem;
+      color: var(--color-grey-light-2);
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: -0.5rem;
+      transform: translateY(-30%);
+    }
+  }
+
+  &__user {
+    padding: 1rem 0.5rem;
+    align-self: stretch;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    @include respond(tab-port) {
+      transform: skewX(15deg);
+    }
+    &-photo {
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+    }
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    &-name {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--color-grey-dark-1);
+    }
+    &-date {
+      font-size: 1rem;
+      font-weight: 300;
+    }
+
+    &-rating {
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      margin-left: auto;
+    }
+  }
+}
+
+/***************************************/
+// CTA
+/***************************************/
+.cta {
+  padding: 3rem 2rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__book-now {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  &__btn {
+    width: 30%;
+    background-image: linear-gradient(
+      to bottom right,
+      var(--color-primary),
+      var(--color-primary-light),
+      #333
+    );
+    border-radius: 10rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    font-size: 1.5rem;
+    color: #f7f7f7;
+    font-weight: 600;
+    padding: 3rem;
+
+    transition: all 0.5s ease-in-out;
+    position: relative;
+
+    &:hover {
+      background-image: linear-gradient(
+        to bottom right,
+        #333,
+        var(--color-primary-light),
+        var(--color-primary)
+      );
+    }
+    &:focus {
+      animation: pulsate 1s infinite;
+    }
+
+    &-visible {
+      width: 100%;
+      opacity: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &-invisible {
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover &-visible {
+      transform: translate(-50%, 100%);
+      opacity: 0;
+    }
+    &:hover &-invisible {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+  }
+}
+
+/***********************************/
+.btn-inline {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  font-size: inherit;
+  padding: 0.3rem 0.2rem;
+  color: var(--color-primary);
+  border-bottom: 1px solid currentColor;
+  transition: all 0.3s;
+  &:hover {
+    color: var(--color-grey-dark-1);
+  }
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 4rem rgba(#000, 0.2);
+  }
+  100% {
+    transform: scale(1.05);
+    box-shadow: none;
+  }
+}
